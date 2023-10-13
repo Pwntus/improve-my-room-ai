@@ -1,9 +1,9 @@
 <template lang="pug">
 #app.min-h-screen
   ui-nav
-  nuxt-page.container.mx-auto.p-2(
+  nuxt-page.container.mx-auto.pb-0.p-2.pt-16(
     v-if="inited"
-    class="lg:p-4 pt-16 lg:pt-24"
+    class="lg:p-4 lg:pt-24"
   )
 </template>
 
