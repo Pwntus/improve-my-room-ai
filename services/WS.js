@@ -26,9 +26,11 @@ class WS {
   onmessage(event) {
     const { body, query } = event.data
     const output = get(body, 'output', null)
+    const status = get(body, 'status', null)
+    console.log(status)
     const type = get(query, 'type', null)
 
-    if (output) EventBus.$emit(`webhook:${type}`, { output, query })
+    if (output) EventBus.$emit(`webhook:${type}`, { output, status, query })
   }
 }
 

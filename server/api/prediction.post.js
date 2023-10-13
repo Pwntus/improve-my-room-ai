@@ -14,7 +14,8 @@ export default defineEventHandler(async (event) => {
     input: {
       image,
       prompt:
-        'Give me interior improvement tips for this room. Use markdown and use a relevant emoji for each point.'
+        'Give me interior improvement tips using this room as reference. Use markdown and use a relevant emoji for each point.',
+      temperature: 0.4
     },
     webhook: `https://r3swiuknhh.execute-api.eu-west-1.amazonaws.com/prod/webhook?key=${ws_key}&type=event`,
     webhook_events_filter: ['start', 'output', 'logs', 'completed']

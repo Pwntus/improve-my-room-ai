@@ -24,7 +24,23 @@ import { componentNames } from '#build/components';
       v-if="output"
       class="bg-[#f1f1f1] lg:rounded-md lg:p-4"
     )
+      svg.w-6.h-6.mr-2.float-left.animate-spin(
+        v-if="output === '...'"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+      )
+        path(
+          d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+        )
       span.output(v-html="markdownToHtml(output)")
+    button.bg-blue-600.text-gray-100.text-base.font-light.inline-flex.rounded-full.px-4.py-1.mt-4.mb-4(
+      v-if="showReset"
+      @click="imageDataURI = null; $refs.file.click()"
+      class="hover:bg-blue-500 lg:text-lg lg:px-6 lg:py-2 lg:mt-8 lg:mb-0"
+    ) Try another
 </template>
 
 <script>
@@ -38,7 +54,8 @@ import { EventBus } from '@/services'
 export default {
   name: 'Upload',
   data: () => ({
-    output: null,
+    showReset: false,
+    output: '.defineEmits.defineEmits.',
     imageDataURI: null
   }),
   methods: {
@@ -97,7 +114,7 @@ export default {
       }
     },
     async doCreatePrediction() {
-      this.loading = true
+      this.showReset = false
       try {
         this.output = '...'
 
@@ -110,12 +127,13 @@ export default {
         })
       } catch (e) {
         console.log(e)
-      } finally {
-        this.loading = false
       }
     },
     async webhookEvent(payload) {
-      const { output, query } = payload
+      const { output, status, query } = payload
+
+      // Only show reset button if not processing
+      this.showReset = status !== 'processing'
 
       const scrollableHeight =
         document.documentElement.scrollHeight - window.innerHeight
