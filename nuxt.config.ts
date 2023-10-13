@@ -1,4 +1,7 @@
 export default defineNuxtConfig({
+  runtimeConfig: {
+    replicateApiToken: process.env.REPLICATE_API_TOKEN || ''
+  },
   ssr: false,
   nitro: {
     preset: 'vercel'
