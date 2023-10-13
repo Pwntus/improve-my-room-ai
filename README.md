@@ -1,75 +1,31 @@
-# Nuxt 3 Minimal Starter
+# Improve My Room AI
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+![Improve My Room AI](./public/cover.jpeg)
 
-## Setup
+## How it works
 
-Make sure to install the dependencies:
+This app is powered by:
 
-```bash
-# npm
-npm install
+🚀 [Replicate](https://replicate.com/?utm_source=project&utm_campaign=improve-my-room-ai), a platform for running machine learning models in the cloud.
 
-# pnpm
-pnpm install
+🖍️ [Llava 13B](https://replicate.com/yorickvp/llava-13b?utm_source=project&utm_campaign=improve-my-room-ai), an open-source visual instruction model tuning towards large language and vision models with GPT-4 level capabilities.
 
-# yarn
-yarn install
+▲ [Vercel](https://vercel.com/), a platform for running web apps.
 
-# bun
-bun install
-```
+⚡️ Nuxt.js [server-side API routes](server/api), for talking to Replicate's API.
 
-## Development Server
+👀 Nuxt.js Vue components, for the browser UI.
 
-Start the development server on `http://localhost:3000`:
+## Development
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+1. Install a recent version of [Node.js](https://nodejs.org/)
+1. Copy your [Replicate API token](https://replicate.com/account?utm_source=project&utm_campaign=improve-my-room-ai) and set it in your environment:
+   ```
+   echo "REPLICATE_API_TOKEN=<your-token-here>" > .env.local
+   ```
+1. Install dependencies and run the server:
+   ```
+   npm install
+   npm run dev
+   ```
+1. Open [localhost:3000](http://localhost:3000) in your browser. That's it!
