@@ -10,7 +10,7 @@ export default defineEventHandler(async (event) => {
 
   // https://replicate.com/yorickvp/llava-13b
   const prediction = await replicate.predictions.create({
-    version: '6bc1c7bb0d2a34e413301fee8f7cc728d2d4e75bfab186aa995f63292bda92fc',
+    version: '2facb4a474a0462c15041b78b1ad70952ea46b5ec6ad29583c0b29dbd4249591',
     input: {
       image,
       prompt:
